@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, ArrowRight } from "lucide-react";
 import { Container, Button } from "@/components/ui";
 import { siteConfig } from "@/config/site";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
 export function CTASection() {
   return (
@@ -14,61 +17,72 @@ export function CTASection() {
 
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8">
-            Get expert CA services for your business. Schedule a free consultation today!
-          </p>
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Ready to Get Started?
+            </h2>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <p className="text-xl md:text-2xl text-white/90 mb-8">
+              Get expert CA services for your business. Schedule a free consultation today!
+            </p>
+          </FadeIn>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/contact">
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto group">
-                Get Free Consultation
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <a href={`tel:${siteConfig.links.phone[0]}`}>
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary"
-              >
-                <Phone className="h-5 w-5" />
-                {siteConfig.links.phone[0]}
-              </Button>
-            </a>
-          </div>
+          <FadeIn delay={0.4}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/contact">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto group">
+                  Get Free Consultation
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <a href={`tel:${siteConfig.links.phone[0]}`}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary"
+                >
+                  <Phone className="h-5 w-5" />
+                  {siteConfig.links.phone[0]}
+                </Button>
+              </a>
+            </div>
+          </FadeIn>
 
           {/* Contact Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-3 text-white/90">
-              <Phone className="h-5 w-5 text-secondary" />
-              <div className="text-left">
-                <div className="text-sm text-white/60">Call Us</div>
-                <a
-                  href={`tel:${siteConfig.links.phone[0]}`}
-                  className="font-medium hover:text-secondary transition-colors"
-                >
-                  {siteConfig.links.phone[0]}
-                </a>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto" staggerDelay={0.15} initialDelay={0.6}>
+            <StaggerItem>
+              <div className="flex items-center justify-center gap-3 text-white/90">
+                <Phone className="h-5 w-5 text-secondary" />
+                <div className="text-left">
+                  <div className="text-sm text-white/60">Call Us</div>
+                  <a
+                    href={`tel:${siteConfig.links.phone[0]}`}
+                    className="font-medium hover:text-secondary transition-colors"
+                  >
+                    {siteConfig.links.phone[0]}
+                  </a>
+                </div>
               </div>
-            </div>
+            </StaggerItem>
 
-            <div className="flex items-center justify-center gap-3 text-white/90">
-              <Mail className="h-5 w-5 text-secondary" />
-              <div className="text-left">
-                <div className="text-sm text-white/60">Email Us</div>
-                <a
-                  href={`mailto:${siteConfig.links.email}`}
-                  className="font-medium hover:text-secondary transition-colors break-all text-sm"
-                >
-                  {siteConfig.links.email}
-                </a>
+            <StaggerItem>
+              <div className="flex items-center justify-center gap-3 text-white/90">
+                <Mail className="h-5 w-5 text-secondary" />
+                <div className="text-left">
+                  <div className="text-sm text-white/60">Email Us</div>
+                  <a
+                    href={`mailto:${siteConfig.links.email}`}
+                    className="font-medium hover:text-secondary transition-colors break-all text-sm"
+                  >
+                    {siteConfig.links.email}
+                  </a>
+                </div>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </Container>
 

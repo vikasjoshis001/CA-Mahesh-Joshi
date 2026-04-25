@@ -1,182 +1,342 @@
+"use client";
+
+import { useState } from "react";
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Container,
+  Input,
+  SectionHeading,
+} from "@/components/ui";
+
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Simulate validation
+    if (!email.includes("@")) {
+      setEmailError("Please enter a valid email address");
+      setIsLoading(false);
+      return;
+    }
+
+    setEmailError("");
+    setTimeout(() => {
+      setIsLoading(false);
+      alert("Form submitted!");
+    }, 2000);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Design System Preview */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <Container className="py-16">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-primary mb-4">
             Mahesh Joshi & Associates
           </h1>
           <p className="text-xl text-muted-foreground">
-            Chartered Accountant
-          </p>
-          <p className="text-foreground mt-2">
-            Professional CA Services in Wakad, Pimpri Chinchwad
+            UI Components Showcase
           </p>
         </div>
 
-        {/* Color Palette */}
+        {/* Section Heading Component */}
+        <SectionHeading
+          title="Reusable UI Components"
+          subtitle="Production-ready components built with TypeScript and Tailwind CSS"
+          accent
+        />
+
+        {/* Buttons Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8">
-            Design System Colors
+          <h2 className="text-2xl font-bold text-foreground mb-6">
+            Button Variants
           </h2>
+
+          <div className="space-y-6">
+            {/* Primary Buttons */}
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-muted-foreground">
+                Primary Variants
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                <Button variant="primary" size="sm">
+                  Small Button
+                </Button>
+                <Button variant="primary" size="md">
+                  Medium Button
+                </Button>
+                <Button variant="primary" size="lg">
+                  Large Button
+                </Button>
+                <Button variant="primary" isLoading>
+                  Loading...
+                </Button>
+                <Button variant="primary" disabled>
+                  Disabled
+                </Button>
+              </div>
+            </div>
+
+            {/* All Variants */}
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-muted-foreground">
+                All Variants
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                <Button variant="primary">Primary</Button>
+                <Button variant="secondary">Secondary</Button>
+                <Button variant="accent">Accent</Button>
+                <Button variant="outline">Outline</Button>
+                <Button variant="ghost">Ghost</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cards Section */}
+        <section className="mb-16">
+          <SectionHeading
+            title="Card Components"
+            subtitle="Flexible card layouts for services, testimonials, and more"
+            align="left"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Primary Colors */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Primary (Navy Blue)
-              </h3>
-              <div className="bg-primary-light h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Primary Light
-              </div>
-              <div className="bg-primary h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Primary
-              </div>
-              <div className="bg-primary-dark h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Primary Dark
-              </div>
-            </div>
+            {/* Default Card */}
+            <Card variant="default" hover>
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                  IT
+                </div>
+                <CardTitle>Income Tax Services</CardTitle>
+                <CardDescription>
+                  Complete tax filing and planning solutions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>✓ ITR Filing (All Categories)</li>
+                  <li>✓ Tax Planning & Optimization</li>
+                  <li>✓ Tax Notice Handling</li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" size="sm" className="w-full">
+                  Learn More
+                </Button>
+              </CardFooter>
+            </Card>
 
-            {/* Secondary Colors */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Secondary (Orange)
-              </h3>
-              <div className="bg-secondary-light h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Secondary Light
-              </div>
-              <div className="bg-secondary h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Secondary
-              </div>
-              <div className="bg-secondary-dark h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Secondary Dark
-              </div>
-            </div>
+            {/* Bordered Card */}
+            <Card variant="bordered" hover>
+              <CardHeader>
+                <div className="w-12 h-12 bg-secondary rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                  GST
+                </div>
+                <CardTitle>GST Services</CardTitle>
+                <CardDescription>
+                  Registration, filing, and compliance
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>✓ GST Registration</li>
+                  <li>✓ Monthly/Quarterly Returns</li>
+                  <li>✓ GST Advisory</li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button variant="secondary" size="sm" className="w-full">
+                  Get Started
+                </Button>
+              </CardFooter>
+            </Card>
 
-            {/* Accent Colors */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Accent (Green)
-              </h3>
-              <div className="bg-accent-light h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Accent Light
-              </div>
-              <div className="bg-accent h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Accent
-              </div>
-              <div className="bg-accent-dark h-20 rounded-lg flex items-center justify-center text-white font-medium">
-                Accent Dark
-              </div>
-            </div>
+            {/* Elevated Card */}
+            <Card variant="elevated" hover>
+              <CardHeader>
+                <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                  AU
+                </div>
+                <CardTitle>Audit Services</CardTitle>
+                <CardDescription>
+                  Professional audit and assurance
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>✓ Statutory Audit</li>
+                  <li>✓ Tax Audit</li>
+                  <li>✓ Internal Audit</li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button variant="accent" size="sm" className="w-full">
+                  Contact Us
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
         </section>
 
-        {/* Buttons */}
+        {/* Input & Form Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8">
-            Button Styles
-          </h2>
+          <SectionHeading
+            title="Form Components"
+            subtitle="Input fields with validation and error handling"
+            align="left"
+          />
 
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors">
-              Primary Button
-            </button>
+          <div className="max-w-2xl">
+            <Card>
+              <CardHeader>
+                <CardTitle>Contact Form Demo</CardTitle>
+                <CardDescription>
+                  Try the input component with validation
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input
+                    label="Full Name"
+                    placeholder="Enter your name"
+                    required
+                  />
 
-            <button className="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary-dark transition-colors">
-              Secondary Button
-            </button>
+                  <Input
+                    label="Email Address"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    error={emailError}
+                    required
+                  />
 
-            <button className="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors">
-              Accent Button
-            </button>
+                  <Input
+                    label="Phone Number"
+                    type="tel"
+                    placeholder="+91 XXXXXXXXXX"
+                    helperText="We'll never share your number"
+                  />
 
-            <button className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors">
-              Outline Button
-            </button>
+                  <Input
+                    label="Message"
+                    placeholder="How can we help you?"
+                  />
+
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    className="w-full"
+                    isLoading={isLoading}
+                  >
+                    {isLoading ? "Submitting..." : "Submit Form"}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
-        {/* Cards */}
+        {/* Container Sizes */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8">
-            Card Components
-          </h2>
+          <SectionHeading
+            title="Container Sizes"
+            subtitle="Responsive containers for consistent layouts"
+            align="left"
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-primary rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
-                IT
-              </div>
-              <h3 className="text-xl font-semibold text-card-foreground mb-2">
-                Income Tax Services
-              </h3>
-              <p className="text-muted-foreground">
-                Comprehensive tax filing and planning services for individuals and businesses.
+          <div className="space-y-4">
+            <Container size="sm" className="bg-muted p-4 rounded-lg">
+              <p className="text-center text-muted-foreground">
+                Small Container (max-w-3xl)
               </p>
-            </div>
+            </Container>
 
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-secondary rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
-                GST
-              </div>
-              <h3 className="text-xl font-semibold text-card-foreground mb-2">
-                GST Services
-              </h3>
-              <p className="text-muted-foreground">
-                Complete GST registration, filing, and compliance management.
+            <Container size="md" className="bg-muted p-4 rounded-lg">
+              <p className="text-center text-muted-foreground">
+                Medium Container (max-w-5xl)
               </p>
-            </div>
+            </Container>
 
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
-                AU
-              </div>
-              <h3 className="text-xl font-semibold text-card-foreground mb-2">
-                Audit Services
-              </h3>
-              <p className="text-muted-foreground">
-                Professional audit services ensuring compliance and accuracy.
+            <Container size="lg" className="bg-muted p-4 rounded-lg">
+              <p className="text-center text-muted-foreground">
+                Large Container (max-w-6xl)
               </p>
-            </div>
+            </Container>
           </div>
         </section>
 
-        {/* Contact Info */}
-        <section className="bg-muted rounded-lg p-8">
-          <h2 className="text-3xl font-bold text-foreground mb-6">
-            Contact Information
-          </h2>
+        {/* Features Grid */}
+        <section className="mb-16">
+          <SectionHeading
+            title="Component Features"
+            subtitle="Built with best practices and modern standards"
+            accent
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-foreground">
-            <div>
-              <p className="font-semibold mb-2">Phone:</p>
-              <p className="text-muted-foreground">+91 9130601393</p>
-            </div>
-
-            <div>
-              <p className="font-semibold mb-2">Email:</p>
-              <p className="text-muted-foreground">camaheshjoshi25@gmail.com</p>
-            </div>
-
-            <div className="md:col-span-2">
-              <p className="font-semibold mb-2">Address:</p>
-              <p className="text-muted-foreground">
-                607, 6th Floor, ANP Landmark, Near Bhumkar Chowk,<br />
-                Bhumkar Nagar, Wakad, Pimpri Chinchwad, Maharashtra - 411 057
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "TypeScript",
+                description: "Fully typed with TypeScript for better DX",
+                icon: "TS",
+              },
+              {
+                title: "Accessible",
+                description: "ARIA labels and keyboard navigation",
+                icon: "A11y",
+              },
+              {
+                title: "Responsive",
+                description: "Mobile-first design approach",
+                icon: "📱",
+              },
+              {
+                title: "Customizable",
+                description: "Easy to extend and customize",
+                icon: "🎨",
+              },
+            ].map((feature, index) => (
+              <Card key={index} hover>
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                    {feature.icon}
+                  </div>
+                  <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  <CardDescription>{feature.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </section>
 
-        {/* Note */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground">
-            ✅ Design System Configured | Colors extracted from CA India logo
+        {/* Footer Note */}
+        <div className="text-center bg-muted rounded-lg p-8">
+          <h3 className="text-2xl font-bold text-foreground mb-2">
+            ✅ UI Components Ready!
+          </h3>
+          <p className="text-muted-foreground mb-4">
+            All reusable components are built and tested. Ready to build pages!
           </p>
+          <div className="flex gap-3 justify-center">
+            <Button variant="primary">Start Building</Button>
+            <Button variant="outline">View Documentation</Button>
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

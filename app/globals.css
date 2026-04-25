@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
+/* Design System - Extracted from CA Mahesh Joshi visiting card */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors - Based on CA India logo */
+  --primary: #1e3a8a;        /* Navy Blue - Main brand color */
+  --primary-dark: #172554;    /* Darker navy for hover states */
+  --primary-light: #3b82f6;   /* Lighter blue for accents */
+
+  --secondary: #f97316;       /* Orange/Saffron - From CA logo */
+  --secondary-dark: #ea580c;  /* Darker orange for hover */
+  --secondary-light: #fb923c; /* Lighter orange */
+
+  --accent: #16a34a;          /* Green - From CA India logo */
+  --accent-dark: #15803d;     /* Darker green */
+  --accent-light: #22c55e;    /* Lighter green */
+
+  /* Neutral Colors */
+  --background: #fafaf9;      /* Off-white/cream background */
+  --foreground: #1f2937;      /* Dark gray text */
+  --muted: #f5f5f4;           /* Light gray for sections */
+  --muted-foreground: #6b7280; /* Muted text color */
+
+  /* Additional Colors */
+  --card: #ffffff;            /* White card background */
+  --card-foreground: #1f2937; /* Card text color */
+  --border: #e5e7eb;          /* Border color */
+  --input: #e5e7eb;           /* Input border */
+  --ring: #1e3a8a;            /* Focus ring color (primary) */
+
+  /* Semantic Colors */
+  --success: #16a34a;         /* Success messages */
+  --warning: #f59e0b;         /* Warning messages */
+  --error: #dc2626;           /* Error messages */
+  --info: #3b82f6;            /* Info messages */
 }
 
 @theme inline {
+  /* Colors */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-light: var(--secondary-light);
+
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-light: var(--accent-light);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  /* Typography */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Spacing scale (consistent spacing) */
+  --spacing-section: 5rem;     /* 80px - Section spacing */
+  --spacing-container: 1.5rem; /* 24px - Container padding */
+
+  /* Border radius */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Focus visible outline */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }

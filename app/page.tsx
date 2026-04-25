@@ -1,65 +1,182 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-background">
+      {/* Design System Preview */}
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-primary mb-4">
+            Mahesh Joshi & Associates
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-muted-foreground">
+            Chartered Accountant
+          </p>
+          <p className="text-foreground mt-2">
+            Professional CA Services in Wakad, Pimpri Chinchwad
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Color Palette */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
+            Design System Colors
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Primary Colors */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
+                Primary (Navy Blue)
+              </h3>
+              <div className="bg-primary-light h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Primary Light
+              </div>
+              <div className="bg-primary h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Primary
+              </div>
+              <div className="bg-primary-dark h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Primary Dark
+              </div>
+            </div>
+
+            {/* Secondary Colors */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
+                Secondary (Orange)
+              </h3>
+              <div className="bg-secondary-light h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Secondary Light
+              </div>
+              <div className="bg-secondary h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Secondary
+              </div>
+              <div className="bg-secondary-dark h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Secondary Dark
+              </div>
+            </div>
+
+            {/* Accent Colors */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
+                Accent (Green)
+              </h3>
+              <div className="bg-accent-light h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Accent Light
+              </div>
+              <div className="bg-accent h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Accent
+              </div>
+              <div className="bg-accent-dark h-20 rounded-lg flex items-center justify-center text-white font-medium">
+                Accent Dark
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Buttons */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
+            Button Styles
+          </h2>
+
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors">
+              Primary Button
+            </button>
+
+            <button className="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary-dark transition-colors">
+              Secondary Button
+            </button>
+
+            <button className="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors">
+              Accent Button
+            </button>
+
+            <button className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors">
+              Outline Button
+            </button>
+          </div>
+        </section>
+
+        {/* Cards */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
+            Card Components
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-primary rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                IT
+              </div>
+              <h3 className="text-xl font-semibold text-card-foreground mb-2">
+                Income Tax Services
+              </h3>
+              <p className="text-muted-foreground">
+                Comprehensive tax filing and planning services for individuals and businesses.
+              </p>
+            </div>
+
+            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-secondary rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                GST
+              </div>
+              <h3 className="text-xl font-semibold text-card-foreground mb-2">
+                GST Services
+              </h3>
+              <p className="text-muted-foreground">
+                Complete GST registration, filing, and compliance management.
+              </p>
+            </div>
+
+            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center text-white text-xl font-bold">
+                AU
+              </div>
+              <h3 className="text-xl font-semibold text-card-foreground mb-2">
+                Audit Services
+              </h3>
+              <p className="text-muted-foreground">
+                Professional audit services ensuring compliance and accuracy.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Info */}
+        <section className="bg-muted rounded-lg p-8">
+          <h2 className="text-3xl font-bold text-foreground mb-6">
+            Contact Information
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-foreground">
+            <div>
+              <p className="font-semibold mb-2">Phone:</p>
+              <p className="text-muted-foreground">+91 9130601393</p>
+            </div>
+
+            <div>
+              <p className="font-semibold mb-2">Email:</p>
+              <p className="text-muted-foreground">camaheshjoshi25@gmail.com</p>
+            </div>
+
+            <div className="md:col-span-2">
+              <p className="font-semibold mb-2">Address:</p>
+              <p className="text-muted-foreground">
+                607, 6th Floor, ANP Landmark, Near Bhumkar Chowk,<br />
+                Bhumkar Nagar, Wakad, Pimpri Chinchwad, Maharashtra - 411 057
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Note */}
+        <div className="mt-12 text-center">
+          <p className="text-muted-foreground">
+            ✅ Design System Configured | Colors extracted from CA India logo
+          </p>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,9 @@
       "WebFetch(domain:casumitchouhan.com)",
       "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src --import-alias \"@/*\" --eslint)",
       "Bash(npm install:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)"
     ]
   }
 }

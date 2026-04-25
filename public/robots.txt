@@ -1,0 +1,11 @@
+# robots.txt for camaheshjoshi.com
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin/private routes (if any)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://camaheshjoshi.com/sitemap.xml

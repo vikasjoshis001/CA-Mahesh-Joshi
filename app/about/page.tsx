@@ -1,11 +1,19 @@
 import { Award, GraduationCap, Briefcase, Target, Phone, Mail } from "lucide-react";
 import { Container, SectionHeading, Button, Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui";
 import { siteConfig } from "@/config/site";
+import { aboutMetadata } from "@/lib/metadata";
+import { BreadcrumbSchema } from "@/components/StructuredData";
 import Link from "next/link";
+
+export const metadata = aboutMetadata;
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://camaheshjoshi.com" },
+        { name: "About", url: "https://camaheshjoshi.com/about" }
+      ]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <Container>

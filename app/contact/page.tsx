@@ -4,6 +4,10 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { GoogleMap } from "@/components/GoogleMap";
 import { siteConfig } from "@/config/site";
 import { OFFICE_HOURS } from "@/config/constants";
+import { contactMetadata } from "@/lib/metadata";
+import { BreadcrumbSchema } from "@/components/StructuredData";
+
+export const metadata = contactMetadata;
 
 export default function ContactPage() {
   // Real office location - ANP Landmark, Wakad
@@ -17,6 +21,11 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://camaheshjoshi.com" },
+        { name: "Contact", url: "https://camaheshjoshi.com/contact" }
+      ]} />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <Container>

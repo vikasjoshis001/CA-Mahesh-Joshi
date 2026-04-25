@@ -3,6 +3,10 @@ import { FileText, Receipt, Shield, Building, Calculator, ClipboardCheck, Phone,
 import { Container, SectionHeading, Button, Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui";
 import { services } from "@/lib/data/services";
 import { siteConfig } from "@/config/site";
+import { servicesMetadata } from "@/lib/metadata";
+import { BreadcrumbSchema } from "@/components/StructuredData";
+
+export const metadata = servicesMetadata;
 
 const iconMap: Record<string, any> = {
   FileText,
@@ -16,6 +20,10 @@ const iconMap: Record<string, any> = {
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://camaheshjoshi.com" },
+        { name: "Services", url: "https://camaheshjoshi.com/services" }
+      ]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <Container>

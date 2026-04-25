@@ -1,0 +1,99 @@
+import { Award, Clock, Shield, TrendingUp, Users, HeartHandshake } from "lucide-react";
+import { Container, SectionHeading } from "@/components/ui";
+
+const reasons = [
+  {
+    icon: Award,
+    title: "Expert Professionals",
+    description: "ACA qualified Chartered Accountant with extensive experience in taxation and compliance.",
+  },
+  {
+    icon: Clock,
+    title: "Timely Service",
+    description: "100% on-time delivery for all filings and compliances. Never miss a deadline.",
+  },
+  {
+    icon: Shield,
+    title: "Data Security",
+    description: "Your financial data is completely secure and confidential with us.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Growth Focused",
+    description: "Strategic tax planning and advisory to help your business grow sustainably.",
+  },
+  {
+    icon: Users,
+    title: "Personalized Attention",
+    description: "Dedicated support and customized solutions for each client's unique needs.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Trusted Relationships",
+    description: "Building long-term partnerships with 100+ satisfied clients across industries.",
+  },
+];
+
+export function WhyChooseUs() {
+  return (
+    <section className="py-20 bg-muted">
+      <Container>
+        <SectionHeading
+          title="Why Choose Us"
+          subtitle="Your success is our priority. Here's what makes us different."
+          accent
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {reasons.map((reason, index) => {
+            const Icon = reason.icon;
+            return (
+              <div
+                key={index}
+                className="group relative bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* Icon */}
+                <div className="mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-card-foreground mb-2">
+                  {reason.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {reason.description}
+                </p>
+
+                {/* Decorative corner */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/5 to-transparent rounded-xl" />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-primary mb-2">5+</div>
+            <div className="text-sm text-muted-foreground">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-secondary mb-2">100+</div>
+            <div className="text-sm text-muted-foreground">Happy Clients</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-accent mb-2">15+</div>
+            <div className="text-sm text-muted-foreground">Services Offered</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-primary mb-2">100%</div>
+            <div className="text-sm text-muted-foreground">On-Time Delivery</div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}

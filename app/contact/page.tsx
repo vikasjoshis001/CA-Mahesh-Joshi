@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Container, SectionHeading, Card, CardHeader, CardTitle, CardContent, Button } from "@/components/ui";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { GoogleMap } from "@/components/GoogleMap";
 import { siteConfig } from "@/config/site";
 import { OFFICE_HOURS } from "@/config/constants";
 
@@ -186,16 +187,9 @@ export default function ContactPage() {
 
           {/* Google Maps */}
           <div className="relative w-full h-[400px] lg:h-full min-h-[400px] rounded-lg overflow-hidden border border-border">
-            <iframe
-              src={mapEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+            <GoogleMap
+              embedUrl={mapEmbedUrl}
               title="Office Location - ANP Landmark, Wakad"
-              className="absolute inset-0"
             />
           </div>
         </div>

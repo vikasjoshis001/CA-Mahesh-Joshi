@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import { Button, Container } from "@/components/ui";
@@ -40,7 +41,18 @@ export function Header() {
         <Container>
           <div className="flex h-16 items-center justify-between">
             {/* Logo / Business Name */}
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-3">
+              {/* CA India Logo */}
+              <Image
+                src="/images/ca-india-logo.svg"
+                alt="CA India Logo"
+                width={40}
+                height={30}
+                className="h-8 w-auto md:h-10"
+                priority
+              />
+
+              {/* Business Name */}
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-primary leading-tight">
                   {siteConfig.name}

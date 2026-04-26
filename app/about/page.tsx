@@ -1,4 +1,5 @@
 import { Award, GraduationCap, Briefcase, Target, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 import { Container, SectionHeading, Button, Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui";
 import { siteConfig } from "@/config/site";
 import { aboutMetadata } from "@/lib/metadata";
@@ -19,7 +20,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-              <Award className="h-4 w-4 text-secondary" />
+              <Award className="h-5 w-5 text-secondary" />
               <span className="text-sm font-medium">About Us</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -98,7 +99,16 @@ export default function AboutPage() {
             {/* Qualifications Card */}
             <Card variant="elevated">
               <CardHeader>
-                <GraduationCap className="h-8 w-8 text-accent mb-2" />
+                {/* CA India Logo instead of GraduationCap */}
+                <div className="w-16 h-16 bg-primary/10 rounded-xl mb-4 flex items-center justify-center p-2">
+                  <Image
+                    src="/images/ca-india-logo.svg"
+                    alt="CA India Certified"
+                    width={64}
+                    height={48}
+                    className="w-full h-auto"
+                  />
+                </div>
                 <CardTitle>Qualifications</CardTitle>
               </CardHeader>
               <CardContent>

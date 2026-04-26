@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Container } from "@/components/ui";
 import { navigation, siteConfig } from "@/config/site";
@@ -15,6 +16,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
+            {/* CA India Logo */}
+            <Image
+              src="/images/ca-india-logo.svg"
+              alt="CA India - ICAI"
+              width={80}
+              height={60}
+              className="h-12 w-auto mb-4"
+            />
+
             <h3 className="text-lg font-bold mb-4">{siteConfig.name}</h3>
             <p className="text-white/80 text-sm mb-4 leading-relaxed">
               Professional Chartered Accountant services in Wakad, Pimpri Chinchwad.

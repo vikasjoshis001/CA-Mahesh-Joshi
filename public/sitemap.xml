@@ -31,4 +31,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- News Page -->
+  <url>
+    <loc>https://camaheshjoshi.com/news</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

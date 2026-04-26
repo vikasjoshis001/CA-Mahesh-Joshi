@@ -22,6 +22,7 @@ export const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "News", href: "/news" },
   { name: "Contact", href: "/contact" },
 ];
 

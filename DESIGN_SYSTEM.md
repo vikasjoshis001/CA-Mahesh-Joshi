@@ -192,6 +192,171 @@ Using Tailwind's default breakpoints:
 - **WhatsApp**: +91 9130601393
 - **Address**: 607, 6th Floor, ANP Landmark, Near Bhumkar Chowk, Bhumkar Nagar, Wakad, Pimpri Chinchwad, Maharashtra - 411 057
 
+## 🏷️ Logo & Branding Assets
+
+### CA India Logo
+
+The official CA India (ICAI) logo is used throughout the website to establish professional credibility and compliance with Institute of Chartered Accountants of India standards.
+
+**Logo File:**
+- **Location**: `/public/images/ca-india-logo.svg`
+- **Format**: SVG (Scalable Vector Graphics)
+- **Size**: 1.8KB (optimized)
+- **Aspect Ratio**: 1.33:1 (landscape)
+- **Colors**:
+  - Blue: `#0a70a1`
+  - Orange: `#f3782c`
+  - Green: `#6cb94e`
+
+### Logo Placement
+
+The CA India logo appears in the following locations:
+
+#### 1. **Header Navigation**
+- **File**: `components/layout/Header.tsx`
+- **Size**:
+  - Mobile: 32px height (`h-8`)
+  - Desktop: 40px height (`h-10`)
+- **Position**: Next to business name (left of text)
+- **Priority**: Loads immediately (above-fold)
+
+```tsx
+<Image
+  src="/images/ca-india-logo.svg"
+  alt="CA India Logo"
+  width={40}
+  height={30}
+  className="h-8 w-auto md:h-10"
+  priority
+/>
+```
+
+#### 2. **Footer**
+- **File**: `components/layout/Footer.tsx`
+- **Size**: 48px height (`h-12`)
+- **Position**: Above business name in About section
+- **Background**: Primary blue (`bg-primary`)
+
+```tsx
+<Image
+  src="/images/ca-india-logo.svg"
+  alt="CA India - ICAI"
+  width={80}
+  height={60}
+  className="h-12 w-auto mb-4"
+/>
+```
+
+#### 3. **Professional Badges**
+- **Files**:
+  - `components/home/HeroSection.tsx` (Homepage hero)
+  - `app/about/page.tsx` (About page hero + qualifications card)
+- **Size**: 20px height (`h-5`) for badges
+- **Context**: "ACA Qualified | ICAI Registered" credentials
+
+```tsx
+<Image
+  src="/images/ca-india-logo.svg"
+  alt="CA India"
+  width={24}
+  height={18}
+  className="h-5 w-auto"
+/>
+```
+
+#### 4. **Qualifications Card** (About Page)
+- **File**: `app/about/page.tsx`
+- **Size**: 64px container with padding
+- **Background**: `bg-primary/10` (light blue tint)
+- **Effect**: Professional certification display
+
+```tsx
+<div className="w-16 h-16 bg-primary/10 rounded-xl mb-4 flex items-center justify-center p-2">
+  <Image
+    src="/images/ca-india-logo.svg"
+    alt="CA India Certified"
+    width={64}
+    height={48}
+    className="w-full h-auto"
+  />
+</div>
+```
+
+### Logo Usage Guidelines
+
+#### ✅ Do's
+
+- **Always maintain aspect ratio** - Never stretch or distort the logo
+- **Use adequate clear space** - Minimum 16px padding around logo
+- **Use on compatible backgrounds** - Works best on white, light backgrounds, or primary blue
+- **Use official SVG file** - Always use the approved SVG for quality
+- **Include proper alt text** - For accessibility and SEO
+
+#### ❌ Don'ts
+
+- **Don't change colors** - Logo colors are official ICAI branding
+- **Don't add effects** - No shadows, outlines, or filters
+- **Don't rotate** - Logo should always be horizontal
+- **Don't use on busy backgrounds** - Maintain visibility and clarity
+- **Don't scale too small** - Minimum recommended height: 20px (mobile badges)
+
+### Favicon & App Icons
+
+**Favicon**:
+- Generated from CA India logo
+- Placed in `app/favicon.ico`
+- Auto-served by Next.js at `/favicon.ico`
+
+**Apple Touch Icon**:
+- 180×180px PNG with CA India logo
+- Placed in `public/apple-touch-icon.png`
+- Used when site is added to iOS home screen
+
+### Open Graph Image
+
+**Social Media Preview:**
+- **File**: `/public/og-image.jpg`
+- **Size**: 1200 × 630px
+- **Design**: Features CA India logo with business name and contact info
+- **Background**: Primary blue gradient
+- **Usage**: Displayed when website is shared on Facebook, LinkedIn, Twitter, WhatsApp
+
+### Color Compatibility
+
+The CA India logo colors complement the website's design system:
+
+| Logo Color | Hex Code | Website Match |
+|------------|----------|---------------|
+| CA Blue | `#0a70a1` | Lighter than primary `#1e3a8a` - good contrast |
+| CA Orange | `#f3782c` | Complements accent `#ea580c` |
+| CA Green | `#6cb94e` | Accent color for visual interest |
+
+The logo's blue is intentionally lighter than the site primary, ensuring it stands out while harmonizing with the overall color scheme.
+
+### Accessibility
+
+All logo instances include proper alt text:
+
+- **Header**: `"CA India Logo"` - Identifies the logo
+- **Footer**: `"CA India - ICAI"` - Adds credential context
+- **Badges**: `"CA India"` - Concise for compact display
+- **Qualifications**: `"CA India Certified"` - Emphasizes certification
+
+Screen readers announce these descriptions, making the site accessible to all users.
+
+### Performance
+
+**Logo Optimization:**
+- SVG format ensures crisp display at any resolution
+- Small file size (1.8KB) - negligible performance impact
+- Priority loading for header logo (immediate visibility)
+- Lazy loading for below-fold instances (better performance)
+
+**Best Practices:**
+- Always use Next.js `Image` component for automatic optimization
+- Include `width` and `height` props to prevent layout shift
+- Use `priority` prop only for above-fold images (header)
+
 ## 🎨 Design Principles
 
 1. **Professional**: Clean, corporate aesthetic appropriate for CA services

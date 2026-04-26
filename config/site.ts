@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   title: "Mahesh M. Joshi (ACA) - Chartered Accountant | Mahesh Joshi & Associates",
   description: "Professional Chartered Accountant services in Wakad, Pimpri Chinchwad. Expert in Income Tax, GST, Audit, Business Setup, and Compliance Management.",
   url: "https://www.camaheshjoshi.com",
-  ogImage: "/images/og-image.jpg",
+  ogImage: "/og-image.jpg",
   links: {
     phone: ["+91 9130601393"],
     email: "camaheshjoshi25@gmail.com",

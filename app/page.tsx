@@ -1,4 +1,4 @@
-import { HeroSection, ServicesOverview, WhyChooseUs, Testimonials, CTASection } from "@/components/home";
+import { HeroSection, ServicesOverview, WhyChooseUs, Testimonials, HomeFAQ, CTASection } from "@/components/home";
 import { fetchGoogleReviews } from "@/lib/google-places";
 
 // Revalidate the homepage every 24 hours (ISR).
@@ -20,6 +20,7 @@ export default async function Home() {
         totalRatings={googleData?.totalRatings}
         placeId={googleData?.placeId ?? process.env.GOOGLE_PLACE_ID}
       />
+      <HomeFAQ />
       <CTASection />
     </div>
   );

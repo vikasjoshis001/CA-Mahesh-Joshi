@@ -24,6 +24,7 @@ export const navigation = [
   { name: "Services", href: "/services" },
   { name: "Blog", href: "/blog" },
   { name: "News", href: "/news" },
+  { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];
 

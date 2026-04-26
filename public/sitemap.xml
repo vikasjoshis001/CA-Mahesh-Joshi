@@ -39,6 +39,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://camaheshjoshi.com/faq</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Blog Listing -->
   <url>
     <loc>https://camaheshjoshi.com/blog</loc>

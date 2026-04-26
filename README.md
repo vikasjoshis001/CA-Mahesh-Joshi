@@ -1,6 +1,10 @@
 # CA Mahesh Joshi - Professional Website
 
-A modern, professional website for CA practice built with Next.js, TypeScript, and Tailwind CSS.
+A modern, professional website for Chartered Accountant Mahesh M. Joshi (ACA) built with Next.js 16, TypeScript, and Tailwind CSS 4.
+
+**Business:** Mahesh Joshi & Associates
+**Location:** Wakad, Pune, Maharashtra
+**Services:** Income Tax, GST, Audit, Business Registration, Accounting
 
 ## Prerequisites
 
@@ -59,23 +63,123 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## Tech Stack
 
 - **Next.js 16** - React framework with App Router
-- **TypeScript** - Type safety
-- **Tailwind CSS 4** - Utility-first CSS
-- **Framer Motion** - Smooth animations
+- **TypeScript** - Type safety and better developer experience
+- **Tailwind CSS 4** - Utility-first CSS framework with CSS variables
+- **Framer Motion** - Smooth scroll-triggered animations
 - **React Hook Form + Zod** - Form handling and validation
-- **React Icons / Lucide React** - Icon libraries
+- **Lucide React** - Beautiful icon library
+- **Resend** - Email service for contact form
+- **Google Maps Embed** - Interactive location map
 
 ## Project Structure
 
 ```
 camaheshjoshi/
-├── app/                 # Next.js App Router pages
-├── components/          # React components (to be created)
-├── lib/                 # Utilities and data (to be created)
-├── public/              # Static assets
-├── .nvmrc              # Node version specification
-└── .node-version       # Alternative Node version file
+├── app/                    # Next.js App Router
+│   ├── page.tsx           # Home page
+│   ├── about/             # About page
+│   ├── services/          # Services page
+│   ├── contact/           # Contact page
+│   ├── api/               # API routes
+│   ├── layout.tsx         # Root layout
+│   └── globals.css        # Global styles & design tokens
+├── components/            # React components
+│   ├── ui/               # Reusable UI components
+│   ├── layout/           # Header, Footer, MobileMenu
+│   ├── home/             # Home page sections
+│   ├── forms/            # ContactForm
+│   └── animations/       # Animation wrappers
+├── lib/                  # Utilities and data
+│   ├── data/            # Services and testimonials data
+│   ├── utils.ts         # Helper functions
+│   └── metadata.ts      # SEO metadata configuration
+├── config/              # Configuration files
+│   ├── site.ts         # Site metadata and contact info
+│   └── constants.ts    # App constants
+├── types/              # TypeScript type definitions
+├── public/             # Static assets
+│   ├── robots.txt     # Search engine crawler rules
+│   └── sitemap.xml    # Site structure for SEO
+├── .nvmrc             # Node version (20)
+└── .env.example       # Environment variables template
 ```
+
+## Features
+
+✅ **4 Pages:** Home, About, Services, Contact
+✅ **Contact Form:** With validation and email integration
+✅ **WhatsApp Integration:** Floating chat button
+✅ **Google Maps:** Interactive location map
+✅ **Fully Responsive:** Mobile, tablet, and desktop optimized
+✅ **SEO Optimized:** Meta tags, Open Graph, JSON-LD structured data
+✅ **Performance Optimized:** Lazy loading, image optimization, bundle splitting
+✅ **Smooth Animations:** Scroll-triggered with Framer Motion
+✅ **Accessible:** WCAG compliant with proper ARIA labels
+
+## Documentation
+
+Complete guides for working with this project:
+
+### Quick Start
+- **[QUICK_START.md](QUICK_START.md)** ⚡ - Get started in under 5 minutes
+
+### Development Guides
+- **[DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)** - Common tasks and workflows
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Project structure and code organization
+- **[COMPONENT_LIBRARY.md](COMPONENT_LIBRARY.md)** - All components with usage examples
+
+### Styling & Design
+- **[DESIGN_SYSTEM.md](DESIGN_SYSTEM.md)** - Colors, typography, spacing
+
+### Performance & SEO
+- **[PERFORMANCE.md](PERFORMANCE.md)** - Optimization strategies and metrics
+- **[SEO-GUIDE.md](SEO-GUIDE.md)** - SEO implementation and best practices
+
+### Deployment & Troubleshooting
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deploy to production (Vercel)
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
+
+### Setup Instructions
+- **[SETUP.md](SETUP.md)** - Detailed first-time setup guide
+
+## Quick Reference
+
+### Development Commands
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+npm run analyze  # Analyze bundle size (set ANALYZE=true)
+```
+
+### Environment Variables
+Create `.env.local` file with:
+```bash
+# Required for contact form
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxx
+
+# Optional - Site URL for metadata
+NEXT_PUBLIC_SITE_URL=https://camaheshjoshi.com
+```
+
+Get Resend API key from [resend.com](https://resend.com)
+
+### Updating Content
+- **Contact info:** `config/site.ts`
+- **Services:** `lib/data/services.ts`
+- **Testimonials:** `lib/data/testimonials.ts`
+- **Office hours:** `config/constants.ts`
+- **Colors:** `app/globals.css` (CSS variables)
+
+## Contact Information
+
+**Business:** Mahesh Joshi & Associates
+**Owner:** Mahesh M. Joshi (ACA)
+**Phone:** +91 9130601393
+**Email:** camaheshjoshi25@gmail.com
+**Office:** 607, 6th Floor, ANP Landmark, Near Bhumkar Chowk, Wakad, Pimpri Chinchwad, Pune - 411057
+**Google Maps:** [View Location](https://maps.app.goo.gl/acYMSXZQ53xYgQ9bA)
 
 ## Learn More
 

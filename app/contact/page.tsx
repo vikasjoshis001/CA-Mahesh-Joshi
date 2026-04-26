@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Container, SectionHeading, Card, CardHeader, CardTitle, CardContent, Button } from "@/components/ui";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { GoogleMap } from "@/components/GoogleMap";
@@ -102,7 +103,7 @@ export default function ContactPage() {
             <Card variant="elevated">
               <CardHeader>
                 <div className="w-12 h-12 bg-accent rounded-lg mb-3 flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-white" />
+                  <FaWhatsapp className="text-2xl text-white" />
                 </div>
                 <CardTitle>WhatsApp</CardTitle>
               </CardHeader>
@@ -227,7 +228,7 @@ export default function ContactPage() {
                 size="lg"
                 className="bg-white/10 border-white text-white hover:bg-white hover:text-primary"
               >
-                <MessageCircle className="h-5 w-5" />
+                <FaWhatsapp className="text-xl" />
                 WhatsApp Chat
               </Button>
             </a>

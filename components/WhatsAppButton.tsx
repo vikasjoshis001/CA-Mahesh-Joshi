@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { siteConfig } from "@/config/site";
 
 export function WhatsAppButton() {
@@ -71,8 +71,8 @@ export function WhatsAppButton() {
           {/* Ripple effect */}
           <div className="absolute inset-0 rounded-full bg-accent/50 animate-ping opacity-75"></div>
 
-          {/* Icon */}
-          <MessageCircle className="relative h-7 w-7 text-white transition-transform group-hover:scale-110" />
+          {/* WhatsApp Icon */}
+          <FaWhatsapp className="relative text-3xl text-white transition-transform group-hover:scale-110" />
 
           {/* Notification badge */}
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white animate-pulse"></div>

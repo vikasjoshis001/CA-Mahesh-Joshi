@@ -26,9 +26,9 @@ export const navigation = [
 ];
 
 export const socialLinks = {
-  // Optional: Add social media links if available
+  youtube: "https://www.youtube.com/@CAMaheshJoshi",
+  instagram: "https://www.instagram.com/ca_maheshjoshi",
+  twitter: "https://x.com/ca_maheshjoshi",
   linkedin: "",
   facebook: "",
-  twitter: "",
-  instagram: "",
 };

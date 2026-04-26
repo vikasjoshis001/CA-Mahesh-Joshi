@@ -233,7 +233,7 @@ export default async function BlogPostPage({
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm"
                 >
                   Book a Free Consultation <ArrowRight className="h-4 w-4" />
                 </Link>

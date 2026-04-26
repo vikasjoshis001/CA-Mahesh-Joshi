@@ -16,6 +16,38 @@ export interface Testimonial {
   message: string;
   rating?: number;
   image?: string;
+  source?: "google" | "static";
+  publishedAt?: string;
+}
+
+// ── Google Places API (New) ──────────────────────────────────────────────────
+
+export interface GoogleReviewAuthor {
+  displayName: string;
+  uri: string;
+  photoUri?: string;
+}
+
+export interface GoogleReviewText {
+  text: string;
+  languageCode: string;
+}
+
+export interface GoogleReview {
+  name: string;
+  rating: number;
+  authorAttribution: GoogleReviewAuthor;
+  publishTime: string;
+  relativePublishTimeDescription: string;
+  text?: GoogleReviewText;
+  originalText?: GoogleReviewText;
+}
+
+export interface GooglePlacesResult {
+  reviews: GoogleReview[];
+  rating: number;
+  userRatingCount: number;
+  displayName?: { text: string };
 }
 
 export interface ContactFormData {

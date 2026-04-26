@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Initialize Resend with API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend is lazily initialised inside the POST handler so that missing the
+// env var at build time does not crash module evaluation (and therefore the
+// production build).  The env-var check inside the handler gives a clean 500.
 
 // Email template component
 function ContactEmailTemplate({
@@ -100,7 +101,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email using Resend
+    // Send email using Resend (lazily initialised after env-var check)
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: "Website Contact Form <onboarding@resend.dev>", // Resend's test email
       to: ["camaheshjoshi25@gmail.com"], // Your email

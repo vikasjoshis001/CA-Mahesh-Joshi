@@ -1,23 +1,47 @@
-"use client";
+// Server Component — no "use client" directive
+// Receives Google review data as props from app/page.tsx (fetched server-side).
+// Merges live Google reviews with static fallback reviews so the section
+// always shows a minimum of 4 cards even before the API key is configured.
 
-import { useState } from "react";
-import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Container, SectionHeading } from "@/components/ui";
-import { testimonials } from "@/lib/data/testimonials";
-import { FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
+import { FadeIn } from "@/components/animations";
+import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
+import { testimonials as staticTestimonials } from "@/lib/data/testimonials";
+import type { Testimonial } from "@/types";
 
-export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const MIN_REVIEWS = 4;
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+interface TestimonialsProps {
+  /** Live Google reviews returned by fetchGoogleReviews(), or undefined */
+  googleReviews?: Testimonial[];
+  /** Overall star rating from Google (e.g. 4.8) */
+  overallRating?: number;
+  /** Total number of Google ratings */
+  totalRatings?: number;
+  /** Google Place ID — needed to build the "Leave a Review" URL */
+  placeId?: string;
+}
 
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+/**
+ * Merges Google reviews with static fallback reviews.
+ * Google reviews always come first; static reviews fill remaining slots
+ * up to MIN_REVIEWS so the carousel never looks sparse.
+ */
+function buildReviewList(googleReviews?: Testimonial[]): Testimonial[] {
+  const google = googleReviews ?? [];
+  const remaining = Math.max(0, MIN_REVIEWS - google.length);
+  const fallback = staticTestimonials.slice(0, remaining);
+  return [...google, ...fallback];
+}
 
-  const currentTestimonial = testimonials[currentIndex];
+export function Testimonials({
+  googleReviews,
+  overallRating,
+  totalRatings,
+  placeId,
+}: TestimonialsProps) {
+  const reviews = buildReviewList(googleReviews);
+  const hasRealReviews = (googleReviews?.length ?? 0) > 0;
 
   return (
     <section className="py-20 bg-background">
@@ -25,110 +49,21 @@ export function Testimonials() {
         <FadeIn>
           <SectionHeading
             title="Client Testimonials"
-            subtitle="What our clients say about our services"
+            subtitle={
+              hasRealReviews
+                ? "Real reviews from our clients on Google"
+                : "What our clients say about our services"
+            }
             accent
           />
         </FadeIn>
 
-        <div className="max-w-4xl mx-auto">
-          <ScaleIn delay={0.3}>
-            {/* Main Testimonial Card */}
-            <div className="relative bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-8 md:p-12 text-white">
-              {/* Quote Icon */}
-              <div className="absolute top-8 right-8 opacity-20">
-                <Quote className="h-16 w-16" />
-              </div>
-
-              {/* Rating */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(currentTestimonial.rating || 5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
-                ))}
-              </div>
-
-              {/* Message */}
-              <blockquote className="text-xl md:text-2xl font-medium mb-8 leading-relaxed relative z-10">
-                "{currentTestimonial.message}"
-              </blockquote>
-
-              {/* Author Info */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="font-semibold text-lg">{currentTestimonial.name}</div>
-                  <div className="text-white/80 text-sm">
-                    {currentTestimonial.role}
-                    {currentTestimonial.company && `, ${currentTestimonial.company}`}
-                  </div>
-                </div>
-
-                {/* Navigation */}
-                <div className="flex gap-2">
-                  <button
-                    onClick={prevTestimonial}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                    aria-label="Previous testimonial"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-                  <button
-                    onClick={nextTestimonial}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                    aria-label="Next testimonial"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </ScaleIn>
-
-          {/* Dots Indicator */}
-          <FadeIn delay={0.5}>
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-8 bg-primary"
-                      : "w-2 bg-border hover:bg-primary/50"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* All Testimonials Grid (Desktop) */}
-          <StaggerContainer className="hidden lg:grid grid-cols-2 gap-6 mt-12" staggerDelay={0.1} initialDelay={0.6}>
-            {testimonials.map((testimonial, index) => (
-              <StaggerItem key={testimonial.id}>
-                <div
-                  className={`bg-card border border-border rounded-lg p-6 cursor-pointer transition-all hover:shadow-lg ${
-                    index === currentIndex ? "ring-2 ring-primary" : ""
-                  }`}
-                  onClick={() => setCurrentIndex(index)}
-                >
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(testimonial.rating || 5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-secondary text-secondary" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                    "{testimonial.message}"
-                  </p>
-                  <div className="text-sm font-semibold text-card-foreground">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {testimonial.role}
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
+        <TestimonialsCarousel
+          reviews={reviews}
+          overallRating={overallRating}
+          totalRatings={totalRatings}
+          placeId={placeId}
+        />
       </Container>
     </section>
   );

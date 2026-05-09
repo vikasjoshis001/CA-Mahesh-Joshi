@@ -30,7 +30,14 @@ export const viewport: Viewport = {
 };
 
 // Use the centralized metadata
-export const metadata: Metadata = homeMetadata;
+export const metadata: Metadata = {
+  ...homeMetadata,
+  icons: {
+    icon: "/images/ca-india-logo.svg",
+    shortcut: "/images/ca-india-logo.svg",
+    apple: "/apple-touch-icon.png",
+  },
+};
 
 export default function RootLayout({
   children,

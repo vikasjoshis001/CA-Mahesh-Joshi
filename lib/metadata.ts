@@ -96,8 +96,8 @@ export function generatePageMetadata({
 
 // Home page metadata
 export const homeMetadata = generatePageMetadata({
-  title: "Mahesh M. Joshi (ACA) - Chartered Accountant in Wakad | Tax, GST, Audit Services",
-  description: "Expert CA services in Wakad, Pune. Specializing in Income Tax filing, GST returns, Statutory Audit, Business setup and Compliance. Call +91 9130601393 for consultation.",
+  title: "Mahesh Joshi & Associates - CA in Pune | CA in Wakad",
+  description: "607, 6th Floor, ANP Landmark, Near Bhumkar Chowk, Bhumkar Nagar, Wakad, Pimpri Chinchwad, Pune - 411057. Expert CA services in Income Tax, GST, Audit & Business Setup. Call +91 9130601393.",
   keywords: [
     "Income Tax Filing",
     "GST Returns",

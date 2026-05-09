@@ -68,7 +68,7 @@ export default function AboutPage() {
                   I bring professional expertise and dedication to every client engagement.
                 </p>
                 <p>
-                  With over 5 years of experience in taxation, audit, and business consulting,
+                  Experience in taxation, audit, and business consulting,
                   I have helped numerous individuals and businesses navigate complex financial matters,
                   ensure compliance, and achieve their financial goals.
                 </p>
@@ -144,7 +144,7 @@ export default function AboutPage() {
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">✓</span>
                     <span className="text-sm text-muted-foreground">
-                      <strong>5+ Years</strong> of Professional Experience
+                      Professional Experience in Taxation &amp; Compliance
                     </span>
                   </li>
                 </ul>

@@ -212,11 +212,7 @@ export function Footer() {
               </div>
             )}
 
-            <p className="flex items-center gap-1">
-              Designed & Developed with
-              <span className="text-secondary">♥</span>
-              by Your Team
-            </p>
+            {/* Designed & Developed with ♥ by Your Team */}
           </div>
         </Container>
       </div>

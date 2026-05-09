@@ -22,8 +22,10 @@ export const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Blog", href: "/blog" },
-  { name: "News", href: "/news" },
+  // TODO: Uncomment when Blog is ready
+  // { name: "Blog", href: "/blog" },
+  // TODO: Uncomment when News is ready
+  // { name: "News", href: "/news" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];

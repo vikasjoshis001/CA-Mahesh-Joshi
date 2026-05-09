@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, CheckCircle, Award, Users } from "lucide-react";
+import Image from "next/image";
+import { Phone, CheckCircle, Award } from "lucide-react";
 import { Button, Container } from "@/components/ui";
 import { siteConfig } from "@/config/site";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import { FadeIn } from "@/components/animations";
 
 export function HeroSection() {
   return (
@@ -102,44 +103,23 @@ export function HeroSection() {
             </FadeIn>
           </div>
 
-          {/* Right Content - Stats Cards */}
-          <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.15} initialDelay={0.4}>
-            {/* Experience Card */}
-            <StaggerItem>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-secondary mb-2">5+</div>
-                <div className="text-white/90 font-medium">Years of</div>
-                <div className="text-white/90 font-medium">Experience</div>
+          {/* Right Content - Photo */}
+          <FadeIn delay={0.4} className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
+                <Image
+                  src="/images/hero/mahesh_joshi_dp.jpeg"
+                  alt="CA Mahesh M. Joshi"
+                  width={384}
+                  height={384}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
               </div>
-            </StaggerItem>
-
-            {/* Clients Card */}
-            <StaggerItem>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-accent mb-2">100+</div>
-                <div className="text-white/90 font-medium">Happy</div>
-                <div className="text-white/90 font-medium">Clients</div>
-              </div>
-            </StaggerItem>
-
-            {/* Services Card */}
-            <StaggerItem>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-secondary mb-2">15+</div>
-                <div className="text-white/90 font-medium">Professional</div>
-                <div className="text-white/90 font-medium">Services</div>
-              </div>
-            </StaggerItem>
-
-            {/* Compliance Card */}
-            <StaggerItem>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-accent mb-2">100%</div>
-                <div className="text-white/90 font-medium">On-Time</div>
-                <div className="text-white/90 font-medium">Delivery</div>
-              </div>
-            </StaggerItem>
-          </StaggerContainer>
+              {/* Decorative ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-secondary/40 scale-110 pointer-events-none" />
+            </div>
+          </FadeIn>
         </div>
       </Container>
 

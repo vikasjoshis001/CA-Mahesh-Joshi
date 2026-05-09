@@ -104,7 +104,7 @@ export async function POST(request: Request) {
     // Send email using Resend (lazily initialised after env-var check)
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
-      from: "Website Contact Form <onboarding@resend.dev>", // Resend's test email
+      from: "Website Contact Form <noreply@camaheshjoshi.com>",
       to: ["camaheshjoshi25@gmail.com"], // Your email
       replyTo: email, // Sender's email for easy reply
       subject: `New Contact Form Submission from ${name}`,

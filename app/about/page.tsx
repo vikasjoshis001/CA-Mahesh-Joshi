@@ -29,7 +29,7 @@ export default function AboutPage() {
             <p className="text-xl text-white/90 leading-relaxed">
               A dedicated Chartered Accountant committed to providing professional,
               reliable, and comprehensive financial services to individuals and businesses
-              in Wakad, Pimpri Chinchwad, and beyond.
+              in Pune.
             </p>
           </div>
         </Container>

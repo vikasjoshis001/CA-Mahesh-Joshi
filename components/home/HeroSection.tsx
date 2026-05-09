@@ -47,7 +47,7 @@ export function HeroSection() {
                 <span className="text-accent font-semibold">Tax</span>,{" "}
                 <span className="text-secondary font-semibold">Audit</span>, and{" "}
                 <span className="text-accent font-semibold">Business</span>{" "}
-                Solutions in Wakad
+                Solutions.
               </p>
             </FadeIn>
 

@@ -90,11 +90,11 @@ export default function ServicesPage() {
           {[
             {
               title: "Expert Guidance",
-              description: "Professional advice from experienced CA with 5+ years in the field",
+              description: "Professional advice from an experienced CA in the field",
             },
             {
               title: "Timely Delivery",
-              description: "100% on-time completion of all filings and compliance requirements",
+              description: "On-time completion of all filings and compliance requirements",
             },
             {
               title: "Competitive Pricing",

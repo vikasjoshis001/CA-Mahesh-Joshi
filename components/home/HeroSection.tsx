@@ -97,7 +97,7 @@ export function HeroSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-accent" />
-                  <span>Trusted by 100+ Clients</span>
+                  <span>Trusted by Our Clients</span>
                 </div>
               </div>
             </FadeIn>

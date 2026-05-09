@@ -13,7 +13,7 @@ const reasons = [
   {
     icon: Clock,
     title: "Timely Service",
-    description: "100% on-time delivery for all filings and compliances. Never miss a deadline.",
+    description: "On-time delivery for all filings and compliances. Never miss a deadline.",
   },
   {
     icon: Shield,
@@ -33,7 +33,7 @@ const reasons = [
   {
     icon: HeartHandshake,
     title: "Trusted Relationships",
-    description: "Building long-term partnerships with 100+ satisfied clients across industries.",
+    description: "Building long-term partnerships with clients across industries.",
   },
 ];
 
@@ -76,34 +76,6 @@ export function WhyChooseUs() {
               </StaggerItem>
             );
           })}
-        </StaggerContainer>
-
-        {/* Stats Section */}
-        <StaggerContainer className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6" staggerDelay={0.15} initialDelay={0.3}>
-          <StaggerItem>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">5+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
-            </div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">100+</div>
-              <div className="text-sm text-muted-foreground">Happy Clients</div>
-            </div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">15+</div>
-              <div className="text-sm text-muted-foreground">Services Offered</div>
-            </div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">100%</div>
-              <div className="text-sm text-muted-foreground">On-Time Delivery</div>
-            </div>
-          </StaggerItem>
         </StaggerContainer>
       </Container>
     </section>

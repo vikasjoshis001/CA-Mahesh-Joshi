@@ -97,7 +97,7 @@ export function generatePageMetadata({
 // Home page metadata
 export const homeMetadata = generatePageMetadata({
   title: "Mahesh M. Joshi (ACA) - Chartered Accountant in Wakad | Tax, GST, Audit Services",
-  description: "Expert CA services in Wakad, Pune. Specializing in Income Tax filing, GST returns, Statutory Audit, Business setup and Compliance. 5+ years experience, 100+ satisfied clients. Call +91 9130601393 for consultation.",
+  description: "Expert CA services in Wakad, Pune. Specializing in Income Tax filing, GST returns, Statutory Audit, Business setup and Compliance. Call +91 9130601393 for consultation.",
   keywords: [
     "Income Tax Filing",
     "GST Returns",
@@ -113,7 +113,7 @@ export const homeMetadata = generatePageMetadata({
 // About page metadata
 export const aboutMetadata = generatePageMetadata({
   title: "About Mahesh M. Joshi (ACA) - Qualified Chartered Accountant",
-  description: "ACA qualified Chartered Accountant with 5+ years of experience in taxation, audit, and business advisory. Expert in Income Tax, GST, and corporate compliance. Trusted by 100+ clients across various industries.",
+  description: "CA qualified Chartered Accountant with expertise in taxation, audit, and business advisory. Expert in Income Tax, GST, and corporate compliance. Trusted by clients across various industries.",
   keywords: [
     "ACA Qualified",
     "ICAI Registered",

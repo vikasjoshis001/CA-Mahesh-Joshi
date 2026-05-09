@@ -18,19 +18,35 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <Container>
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-              <Award className="h-5 w-5 text-secondary" />
-              <span className="text-sm font-medium">About Us</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* Left: Text */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                <Award className="h-5 w-5 text-secondary" />
+                <span className="text-sm font-medium">About Us</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                CA Mahesh Joshi
+              </h1>
+              <p className="text-xl text-white/90 leading-relaxed">
+                A dedicated Chartered Accountant committed to providing professional,
+                reliable, and comprehensive financial services to individuals and businesses
+                in Pune.
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              CA Mahesh Joshi
-            </h1>
-            <p className="text-xl text-white/90 leading-relaxed">
-              A dedicated Chartered Accountant committed to providing professional,
-              reliable, and comprehensive financial services to individuals and businesses
-              in Pune.
-            </p>
+            {/* Right: Convocation Image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20 max-w-md w-full">
+                <Image
+                  src="/images/about/ca_induction.jpeg"
+                  alt="CA Mahesh Joshi — ICAI Convocation December 2025"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </section>

@@ -25,7 +25,7 @@ export function HeroSection() {
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
                 <Award className="h-5 w-5 text-secondary"/>
                 <span className="text-sm font-medium">
-                  ACA Qualified | ICAI Registered
+                  CA Qualified | ICAI Registered
                 </span>
               </div>
             </FadeIn>
@@ -33,7 +33,7 @@ export function HeroSection() {
             <FadeIn delay={0.3}>
               {/* Main Headline */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Mahesh M. Joshi
+                CA Mahesh Joshi
                 <span className="block text-2xl md:text-3xl lg:text-4xl text-secondary mt-2">
                   Chartered Accountant
                 </span>

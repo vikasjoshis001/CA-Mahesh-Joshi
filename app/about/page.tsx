@@ -24,7 +24,7 @@ export default function AboutPage() {
               <span className="text-sm font-medium">About Us</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Mahesh M. Joshi (ACA)
+              CA Mahesh Joshi
             </h1>
             <p className="text-xl text-white/90 leading-relaxed">
               A dedicated Chartered Accountant committed to providing professional,

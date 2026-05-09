@@ -8,7 +8,7 @@ export const services: Service[] = [
   {
     id: "income-tax",
     title: "Income Tax Services",
-    description: "Comprehensive income tax filing, planning, and advisory services for individuals and businesses.",
+    description: "Strategic tax planning to maximize your savings while ensuring 100% compliance with the latest tax codes.",
     icon: "FileText",
     features: [
       "ITR Filing (All Categories)",
@@ -20,7 +20,7 @@ export const services: Service[] = [
   {
     id: "gst-services",
     title: "GST Services",
-    description: "Complete GST registration, filing, and compliance management services.",
+    description: "Hassle-free GST compliance. We manage your monthly returns and ITC matching so you never face a tax notice.",
     icon: "Receipt",
     features: [
       "GST Registration",
@@ -44,7 +44,7 @@ export const services: Service[] = [
   {
     id: "business-setup",
     title: "Business Setup",
-    description: "End-to-end business registration and setup services.",
+    description: "From picking the right structure (LLP vs. Pvt Ltd) to getting your incorporation certificate, we handle the legal heavy lifting.",
     icon: "Building",
     features: [
       "Company Registration",

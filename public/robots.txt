@@ -3,9 +3,17 @@
 # Allow all search engines
 User-agent: *
 Allow: /
+Allow: /tools/
+Allow: /tools/emi-calculator
+Allow: /tools/gst-calculator
+Allow: /tools/income-tax-calculator
+Allow: /tools/salary-tax-calculator
 
 # Disallow admin/private routes (if any)
 Disallow: /api/
 
 # Sitemap location
 Sitemap: https://camaheshjoshi.com/sitemap.xml
+
+# Crawl delay (optional - helps reduce server load)
+Crawl-delay: 1

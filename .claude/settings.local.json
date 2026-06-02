@@ -13,7 +13,8 @@
       "Bash(. \"$NVM_DIR/nvm.sh\")",
       "Bash(nvm use:*)",
       "Bash(timeout 10 npm run dev:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(head -150 /Users/vikasjoshis001/Downloads/Tax_Calculator_CA_MAHESH_JOSHI_v7 \\\\\\(1\\\\\\).html)"
     ]
   }
 }

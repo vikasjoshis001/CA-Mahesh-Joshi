@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui";
 import { navigation, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
   return (
     <>
@@ -38,6 +40,51 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <nav className="flex-1 px-6 py-8 space-y-1 overflow-y-auto">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
+              const hasChildren = item.children && item.children.length > 0;
+              const isExpanded = expandedMenu === item.name;
+              const isChildActive = hasChildren && item.children?.some(child => pathname === child.href);
+
+              if (hasChildren) {
+                return (
+                  <div key={item.name} className="space-y-1">
+                    <button
+                      onClick={() => setExpandedMenu(isExpanded ? null : item.name)}
+                      className={cn(
+                        "flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium transition-colors",
+                        isChildActive
+                          ? "bg-primary/10 text-primary"
+                          : "text-foreground hover:bg-muted"
+                      )}
+                    >
+                      {item.name}
+                      <ChevronDown className={cn(
+                        "h-4 w-4 transition-transform",
+                        isExpanded && "rotate-180"
+                      )} />
+                    </button>
+                    {isExpanded && (
+                      <div className="pl-4 space-y-1">
+                        {item.children?.map((child) => (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            onClick={onClose}
+                            className={cn(
+                              "flex items-center px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                              pathname === child.href
+                                ? "bg-primary text-white"
+                                : "text-foreground hover:bg-muted"
+                            )}
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={item.name}

@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { ReactElement } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Container } from "@/components/ui";
-import { navigation, siteConfig, socialLinks } from "@/config/site";
+import { navigation, siteConfig, socialLinks, calculatorTools } from "@/config/site";
 import { services } from "@/lib/data/services";
 import { OFFICE_HOURS } from "@/config/constants";
 
@@ -53,7 +53,7 @@ export function Footer() {
     <footer className="bg-primary text-white">
       {/* Main Footer Content */}
       <Container className="py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* About Section */}
           <div>
             {/* CA India Logo */}
@@ -104,7 +104,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {navigation.map((item) => (
+              {navigation.filter(item => !item.children).map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -112,6 +112,25 @@ export function Footer() {
                   >
                     <span className="group-hover:translate-x-1 transition-transform">
                       {item.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Calculator Tools */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Calculator Tools</h3>
+            <ul className="space-y-2">
+              {calculatorTools.map((tool) => (
+                <li key={tool.name}>
+                  <Link
+                    href={tool.href}
+                    className="text-white/80 hover:text-white text-sm transition-colors inline-flex items-center group"
+                  >
+                    <span className="group-hover:translate-x-1 transition-transform">
+                      {tool.name}
                     </span>
                   </Link>
                 </li>

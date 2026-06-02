@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone } from "lucide-react";
+import { Phone, ChevronDown } from "lucide-react";
 import { Button, Container } from "@/components/ui";
 import { navigation, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -67,6 +67,43 @@ export function Header() {
             <nav className="hidden md:flex items-center space-x-8">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
+                const hasChildren = item.children && item.children.length > 0;
+                const isChildActive = hasChildren && item.children?.some(child => pathname === child.href);
+
+                if (hasChildren) {
+                  return (
+                    <div key={item.name} className="relative group">
+                      <button
+                        className={cn(
+                          "flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary",
+                          isChildActive ? "text-primary" : "text-foreground/80"
+                        )}
+                      >
+                        {item.name}
+                        <ChevronDown className="h-3.5 w-3.5" />
+                      </button>
+                      <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div className="bg-background border border-border rounded-lg shadow-lg py-2 min-w-[200px]">
+                          {item.children?.map((child) => (
+                            <Link
+                              key={child.name}
+                              href={child.href}
+                              className={cn(
+                                "block px-4 py-2 text-sm transition-colors hover:bg-muted",
+                                pathname === child.href
+                                  ? "text-primary font-medium"
+                                  : "text-foreground"
+                              )}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.name}

@@ -28,6 +28,23 @@ export const navigation = [
   // { name: "News", href: "/news" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
+  {
+    name: "Tools",
+    href: "#",
+    children: [
+      { name: "EMI Calculator", href: "/tools/emi-calculator" },
+      { name: "GST Calculator", href: "/tools/gst-calculator" },
+      { name: "Income Tax Calculator", href: "/tools/income-tax-calculator" },
+      { name: "Salary Tax Calculator", href: "/tools/salary-tax-calculator" },
+    ]
+  },
+];
+
+export const calculatorTools = [
+  { name: "EMI Calculator", href: "/tools/emi-calculator", description: "Calculate loan EMI" },
+  { name: "GST Calculator", href: "/tools/gst-calculator", description: "Calculate GST amount" },
+  { name: "Income Tax Calculator", href: "/tools/income-tax-calculator", description: "Compare old vs new tax regime" },
+  { name: "Salary Tax Calculator", href: "/tools/salary-tax-calculator", description: "Calculate salary tax" },
 ];
 
 export const socialLinks = {

@@ -14,7 +14,7 @@ const contactFormSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits").max(15, "Phone number is too long"),
   service: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message is too long"),
+  message: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -162,8 +162,7 @@ export function ContactForm() {
               htmlFor="message"
               className="block text-sm font-medium text-foreground mb-2"
             >
-              Message
-              <span className="text-error ml-1">*</span>
+              Message <span className="text-muted-foreground text-xs">(optional)</span>
             </label>
             <textarea
               id="message"
